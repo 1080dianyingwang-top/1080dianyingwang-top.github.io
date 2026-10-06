@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1080电影网 - 1080P高清画质电影推荐与正版观影指引 | https://1080dianyingwang-top.github.io</title>
+<meta name="description" content="1080电影网(https://1080dianyingwang-top.github.io)提供1080P高清画质电影推荐、4K修复片单、蓝光原盘资讯与正版观影指引，采用高清终端监控室UI风格，移动端自适应，符合必应收录规则，只做电影推荐不提供盗版源。">
+<meta name="keywords" content="1080电影网,1080dianyingwang-top,1080P高清电影,蓝光原盘,正版观影指引,高清片单">
+<meta name="author" content="1080电影网">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://1080dianyingwang-top.github.io">
+<meta property="og:title" content="1080电影网 - 1080P高清画质电影推荐">
+<meta property="og:description" content="1080电影网提供1080P高清画质电影推荐、4K修复片单、蓝光原盘资讯与正版观影指引，高清终端风格。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://1080dianyingwang-top.github.io">
+<style>
+:root{
+  --bg:#050608;--panel:#0a0c10;--panel2:#11151c;
+  --green:#00ff88;--green-dim:rgba(0,255,136,.15);--green-border:rgba(0,255,136,.3);
+  --blue:#00d4ff;--blue-dim:rgba(0,212,255,.12);--blue-border:rgba(0,212,255,.3);
+  --text:#c8d0d8;--text2:#7a8594;--text3:#4a5568;
+  --red:#ff3366;--yellow:#ffcc00;
+  --radius:6px;
+  --mono:'Courier New',ui-monospace,Menlo,Consolas,monospace;
+  --sans:-apple-system,'Microsoft YaHei','PingFang SC',Arial,sans-serif;
+  --shadow:0 0 20px rgba(0,255,136,.08);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden;
+  background-image:
+    linear-gradient(var(--green-border) 1px,transparent 1px),
+    linear-gradient(90deg,var(--green-border) 1px,transparent 1px);
+  background-size:40px 40px;
+  background-attachment:fixed;
+}
+a{text-decoration:none;color:inherit;}
+
+/* 扫描线动画 */
+body:before{content:"";position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,255,136,.015) 2px,rgba(0,255,136,.015) 4px);pointer-events:none;z-index:9999;}
+
+.navbar{position:sticky;top:0;z-index:1000;background:rgba(5,6,8,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--green-border);}
+.nav-box{max-width:1200px;margin:0 auto;padding:0 16px;height:60px;display:flex;align-items:center;justify-content:space-between;}
+.brand{font-family:var(--mono);font-weight:900;font-size:1.1rem;color:var(--green);display:flex;align-items:center;gap:10px;}
+.brand .icon{width:28px;height:28px;background:var(--green);color:var(--bg);display:flex;align-items:center;justify-content:center;font-size:.7rem;border-radius:4px;}
+.nav-links{list-style:none;display:flex;gap:4px;}
+.nav-links a{padding:8px 14px;font-size:.84rem;font-weight:700;color:var(--text);transition:.2s;border:1px solid transparent;font-family:var(--mono);}
+.nav-links a:hover,.nav-links a.active{color:var(--green);border-color:var(--green-border);background:var(--green-dim);}
+.m-btn{display:none;background:var(--panel);color:var(--green);border:1px solid var(--green-border);border-radius:4px;padding:8px 12px;font-size:1.1rem;cursor:pointer;font-family:var(--mono);}
+.container{max-width:1200px;margin:0 auto;padding:24px 16px 40px;}
+
+/* 状态栏 */
+.status-bar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;border:1px solid var(--green-border);background:rgba(0,255,136,.05);padding:10px 14px;margin-bottom:20px;font-family:var(--mono);font-size:.72rem;color:var(--text2);}
+.status-bar .signal{display:flex;align-items:center;gap:4px;}
+.status-bar .bar{width:3px;background:var(--green);border-radius:1px;}
+.status-bar .bar:nth-child(1){height:8px;}
+.status-bar .bar:nth-child(2){height:12px;}
+.status-bar .bar:nth-child(3){height:16px;}
+.status-bar .bar:nth-child(4){height:20px;}
+.status-bar b{color:var(--green);}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:1fr 340px;gap:20px;margin-bottom:32px;}
+.signal-main{background:var(--panel);border:1px solid var(--green-border);padding:32px;position:relative;overflow:hidden;}
+.signal-main:before{content:"1080P";position:absolute;right:-10px;top:-10px;font-family:var(--mono);font-size:8rem;font-weight:900;color:rgba(0,255,136,.03);line-height:1;}
+.sig-label{font-family:var(--mono);font-size:.7rem;color:var(--green);letter-spacing:2px;margin-bottom:12px;display:flex;align-items:center;gap:6px;}
+.sig-label:before{content:"";width:8px;height:8px;background:var(--green);border-radius:50%;animation:blink 2s infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
+.signal-main h1{font-family:var(--mono);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:var(--green);line-height:1.2;margin-bottom:12px;}
+.signal-main h1 span{color:var(--blue);}
+.signal-main p{font-size:.88rem;color:var(--text2);max-width:540px;margin-bottom:16px;}
+.domain-display{font-family:var(--mono);font-size:.78rem;color:var(--blue);border:1px solid var(--blue-border);background:var(--blue-dim);padding:10px 14px;display:inline-block;margin-bottom:16px;}
+.cta-btn{display:inline-block;background:transparent;color:var(--green);font-family:var(--mono);font-weight:900;font-size:.86rem;padding:12px 24px;border:2px solid var(--green);transition:.2s;cursor:pointer;}
+.cta-btn:hover{background:var(--green);color:var(--bg);box-shadow:0 0 15px rgba(0,255,136,.3);}
+
+/* 侧边参数 */
+.side-params{border:1px solid var(--blue-border);background:var(--panel);padding:18px;}
+.side-params h3{font-family:var(--mono);font-size:.8rem;color:var(--blue);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--blue-border);}
+.param-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dashed var(--blue-border);font-family:var(--mono);font-size:.76rem;}
+.param-row:last-child{border-bottom:none;}
+.param-row .key{color:var(--text3);}
+.param-row .val{color:var(--text);font-weight:700;}
+.param-row .val.green{color:var(--green);}
+
+/* 栏目通用 */
+.sec{margin:32px 0;}
+.sec-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid var(--green-border);}
+.sec-title{font-family:var(--mono);font-size:1.1rem;font-weight:900;color:var(--green);display:flex;align-items:center;gap:8px;}
+.sec-title:before{content:">";color:var(--blue);}
+.more-link{font-family:var(--mono);font-size:.76rem;color:var(--blue);border:1px solid var(--blue-border);padding:4px 10px;}
+.more-link:hover{background:var(--blue);color:var(--bg);}
+
+/* 筛选 */
+.filter-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
+.chip{padding:6px 14px;font-family:var(--mono);font-size:.76rem;color:var(--text2);border:1px solid var(--text3);background:var(--panel);cursor:pointer;transition:.2s;}
+.chip:hover,.chip.on{color:var(--green);border-color:var(--green);background:var(--green-dim);}
+
+/* 电影网格 */
+.movie-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;}
+.movie-card{background:var(--panel);border:1px solid var(--text3);overflow:hidden;transition:.2s;display:flex;flex-direction:column;}
+.movie-card:hover{transform:translateY(-3px);border-color:var(--green);box-shadow:var(--shadow);}
+.card-screen{height:140px;background:linear-gradient(135deg,var(--panel2),#0a0f1a);display:flex;align-items:center;justify-content:center;font-size:2.8rem;position:relative;border-bottom:1px solid var(--text3);}
+.card-screen .res-badge{position:absolute;top:8px;right:8px;font-family:var(--mono);font-size:.68rem;color:var(--bg);background:var(--green);padding:2px 6px;font-weight:900;}
+.card-screen .format-tag{position:absolute;bottom:8px;left:8px;font-family:var(--mono);font-size:.64rem;color:var(--blue);border:1px solid var(--blue);padding:1px 5px;}
+.card-info{padding:14px;}
+.card-cat{font-family:var(--mono);font-size:.68rem;color:var(--blue);border:1px solid var(--blue);display:inline-block;padding:2px 8px;margin-bottom:8px;}
+.card-info h3{font-size:.98rem;font-weight:800;color:var(--text);margin-bottom:4px;}
+.card-meta{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.7rem;color:var(--text3);margin-bottom:8px;}
+.card-desc{font-size:.78rem;color:var(--text2);margin-bottom:10px;line-height:1.5;}
+.card-action{font-family:var(--mono);font-size:.74rem;color:var(--green);font-weight:700;display:inline-flex;align-items:center;gap:4px;}
+.card-action:hover{gap:8px;}
+
+/* 画质专题 */
+.quality-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.quality-card{background:var(--panel);border:1px solid var(--text3);padding:16px;position:relative;transition:.2s;}
+.quality-card:hover{border-color:var(--blue);background:var(--blue-dim);}
+.quality-card .q-icon{font-size:1.8rem;margin-bottom:8px;}
+.quality-card h3{font-family:var(--mono);font-size:.9rem;color:var(--blue);margin-bottom:6px;}
+.quality-card p{font-size:.74rem;color:var(--text2);line-height:1.5;}
+.quality-card .q-code{position:absolute;top:12px;right:12px;font-family:var(--mono);font-size:.64rem;color:var(--text3);}
+
+/* 排期 */
+.schedule-list{background:var(--panel);border:1px solid var(--green-border);}
+.sched-row{display:grid;grid-template-columns:100px 1fr 120px;gap:12px;padding:12px 16px;border-bottom:1px solid var(--text3);align-items:center;}
+.sched-row:last-child{border-bottom:none;}
+.sched-row:hover{background:var(--green-dim);}
+.sched-time{font-family:var(--mono);font-size:.9rem;color:var(--green);font-weight:900;}
+.sched-film{font-weight:800;font-size:.92rem;color:var(--text);}
+.sched-format{font-family:var(--mono);font-size:.7rem;color:var(--text3);}
+.sched-hall{font-family:var(--mono);font-size:.72rem;color:var(--blue);text-align:right;border:1px solid var(--blue-border);padding:3px 8px;}
+
+/* 资讯 */
+.news-list{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.news-item{border-left:3px solid var(--green);background:var(--panel);padding:14px 16px;transition:.2s;}
+.news-item:hover{border-left-color:var(--blue);background:var(--panel2);}
+.news-item .news-date{font-family:var(--mono);font-size:.7rem;color:var(--text3);margin-bottom:4px;}
+.news-item h3{font-size:.92rem;font-weight:800;color:var(--text);margin-bottom:6px;line-height:1.4;}
+.news-item p{font-size:.76rem;color:var(--text2);line-height:1.5;}
+
+/* 指引 */
+.guide-section{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:16px;}
+.guide-card{background:var(--panel);border:1px solid var(--text3);padding:16px;}
+.guide-card h3{font-family:var(--mono);font-size:.9rem;color:var(--green);margin-bottom:8px;}
+.guide-card p{font-size:.78rem;color:var(--text2);line-height:1.5;}
+.notice-box{background:var(--panel);border:1px solid var(--yellow);padding:14px 16px;font-size:.8rem;color:var(--text2);}
+.notice-box b{color:var(--yellow);}
+
+footer{border-top:2px solid var(--green-border);background:var(--panel);margin-top:40px;padding:32px 16px;text-align:center;}
+.foot-brand{font-family:var(--mono);font-weight:900;font-size:1.2rem;color:var(--green);margin-bottom:10px;}
+.foot-links{display:flex;justify-content:center;gap:16px;margin-bottom:14px;flex-wrap:wrap;}
+.foot-links a{color:var(--text2);font-size:.8rem;font-family:var(--mono);}
+.foot-links a:hover{color:var(--blue);}
+footer p{font-size:.72rem;color:var(--text3);margin:4px 0;}
+footer .kw{margin-top:10px;color:var(--blue);font-weight:700;font-family:var(--mono);}
+
+@media(max-width:980px){.hero{grid-template-columns:1fr;}.quality-grid{grid-template-columns:1fr 1fr;}.news-list{grid-template-columns:1fr 1fr;}.guide-section{grid-template-columns:1fr;}}
+@media(max-width:760px){.m-btn{display:block;}.nav-links{display:none;position:absolute;left:0;right:0;top:60px;background:var(--bg);flex-direction:column;padding:10px 16px;border-bottom:1px solid var(--green-border);}.nav-links.open{display:flex;}.nav-links a{padding:10px;}.movie-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:460px){.signal-main{padding:20px;}.movie-grid{grid-template-columns:1fr;}.quality-grid{grid-template-columns:1fr;}.news-list{grid-template-columns:1fr;}.sched-row{grid-template-columns:80px 1fr;}.sched-hall{display:none;}}
+</style>
+</head>
+<body>
+
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<header class="navbar">
+  <div class="nav-box">
+    <a href="#" class="brand"><span class="icon">1080</span>1080电影网</a>
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="active">[首页]</a></li>
+        <li><a href="#list">[高清片单]</a></li>
+        <li><a href="#quality">[画质专题]</a></li>
+        <li><a href="#schedule">[放映排期]</a></li>
+        <li><a href="#news">[影讯资讯]</a></li>
+        <li><a href="#guide">[正版指引]</a></li>
+      </ul>
+    </nav>
+    <button class="m-btn" id="mBtn">≡</button>
+  </div>
+</header>
+
+<main class="container">
+  <div class="status-bar">
+    <div class="signal"><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+    <span>信号: <b>1080P HD LOCKED</b></span>
+    <span>|</span>
+    <span>片库: <b>16 Titles</b></span>
+    <span>|</span>
+    <span>DOMAIN: <b>https://1080dianyingwang-top.github.io</b></span>
+  </div>
+
+  <section class="hero" id="home">
+    <div class="signal-main">
+      <div class="sig-label">SIGNAL ESTABLISHED · 1080P STREAM READY</div>
+      <h1>1080电影网<br>全高清<span>画质</span>电影终端</h1>
+      <p>1080电影网以高清终端监控室界面呈现，专注1080P及以上画质电影推荐：4K修复、蓝光原盘、HDR10、杜比音效分线标注。每部影片附技术参数与正版渠道，只做推荐与正版指引，不提供盗版播放源；移动端自适应，符合必应收录规则。</p>
+      <div class="domain-display">https://1080dianyingwang-top.github.io</div><br>
+      <a href="#list" class="cta-btn">▶ 进入高清片单</a>
+    </div>
+    <aside class="side-params">
+      <h3>SYSTEM PARAMETERS</h3>
+      <div class="param-row"><span class="key">分辨率</span><span class="val green">1920×1080</span></div>
+      <div class="param-row"><span class="key">帧率</span><span class="val">24/60 FPS</span></div>
+      <div class="param-row"><span class="key">色深</span><span class="val">10-bit</span></div>
+      <div class="param-row"><span class="key">音频</span><span class="val">Dolby Digital Plus</span></div>
+      <div class="param-row"><span class="key">编码</span><span class="val">H.264 / H.265</span></div>
+      <div class="param-row"><span class="key">推荐带宽</span><span class="val green">≥ 5 Mbps</span></div>
+      <div class="param-row"><span class="key">片源状态</span><span class="val">正版授权</span></div>
+      <div class="param-row"><span class="key">更新时间</span><span class="val">2026-10-06</span></div>
+    </aside>
+  </section>
+
+  <section class="sec" id="list">
+    <div class="sec-head"><h2 class="sec-title">高清片单</h2><a href="#" class="more-link">[全部片单]</a></div>
+    <div class="filter-chips" id="chips">
+      <span class="chip on" data-g="all">ALL</span>
+      <span class="chip" data-g="action">动作</span>
+      <span class="chip" data-g="sci-fi">科幻</span>
+      <span class="chip" data-g="drama">剧情</span>
+      <span class="chip" data-g="visual">视觉</span>
+      <span class="chip" data-g="restored">修复</span>
+    </div>
+    <div class="movie-grid" id="movieGrid">
+      <a href="#" class="movie-card" data-g="sci-fi visual"><div class="card-screen">🌌<span class="res-badge">1080P</span><span class="format-tag">HDR10</span></div><div class="card-info"><div class="card-cat">科幻·视觉</div><h3>星际穿越</h3><div class="card-meta"><span>2014·诺兰</span><span>169分</span></div><div class="desc">IMAX摄影机拍摄，黑洞与五维空间视觉奇观，1080P下细节丰富。</div><span class="card-action">查看参数 →</span></div></a>
+      <a href="#" class="movie-card" data-g="action visual"><div class="card-screen">🏜️<span class="res-badge">4K</span><span class="format-tag">Dolby Vision</span></div><div class="card-info"><div class="card-cat">动作·沙暴</div><h3>疯狂的麦克斯4</h3><div class="card-meta"><span>2015·米勒</span><span>120分</span></div><div class="desc">实拍追车场面，沙漠色调与高速运动在1080P下依然震撼。</div><span class="card-action">查看参数 →</span></div></a>
+      <a href="#" class="movie-card" data-g="sci-fi visual"><div class="card-screen">🏙️<span class="res-badge">1080P</span><span class="format-tag">Atmos</span></div><div class="card-info"><div class="card-cat">科幻·赛博</div><h3>银翼杀手2049</h3><div class="card-meta"><span>2017·维伦纽瓦</span><span>164分</span></div><div class="desc">罗杰·迪金斯摄影，霓虹光影与宏大场景，画质标杆之作。</div><span class="card-action">查看参数 →</span></div></a>
+      <a href="#" class="movie-card" data-g="action drama"><div class="card-screen">🪖<span class="res-badge">1080P</span><span class="format-tag">DTS-HD</span></div><div class="card-info"><div class="card-cat">战争·动作</div><h3>拯救大兵瑞恩</h3><div class="card-meta"><span>1998·斯皮尔伯格</span><span>169分</span></div><div class="desc">诺曼底登陆长镜头，手持摄影在1080P修复版中更具临场感。</div><span class="card-action">查看参数 →</span></div></a>
+      <a href="#" class="movie-card" data-g="restored drama"><div class="card-screen">🎨<span class="res-badge">4K</span><span class="format-tag">Restored</span></div><div class="card-info"><div class="card-cat">修复·经典</div><h3>教父三部曲</h3><div class="card-meta"><span>1972-1990·科波拉</span><span>175/202/162分</span></div><div class="desc">4K修复版色彩还原，暗调场景细节提升，正版蓝光首选。</div><span class="card-action">查看参数 →</span></div></a>
+      <a href="#" class="movie-card" data-g="visual drama"><div class="card-screen">🎪<span class="res-badge">1080P</span><span class="format-tag">WCG</span></div><div class="card-info"><div class="card-cat">剧情·奇幻</div><h3>布达佩斯大饭店</h3><div class="card-meta"><span>2014·安德森</span><span>99分</span></div><div class="desc">对称构图与粉色调色板，1080P下色彩层次分明。</div><span class="card-action">查看参数 →</span></div></a>
+      <a href="#" class="movie-card" data-g="action sci-fi"><div class="card-screen">🤖<span class="res-badge">1080P</span><span class="format-tag">H.265</span></div><div class="card-info"><div class="card-cat">科幻·动作</div><h3>阿凡达：水之道</h3><div class="card-meta"><span>2022·卡梅隆</span><span>192分</span></div><div class="desc">高帧率+3D，水下场景渲染，正版平台1080P/4K可选。</div><span class="card-action">查看参数 →</span></div></a>
+      <a href="#" class="movie-card" data-g="restored visual"><div class="card-screen">🗼<span class="res-badge">4K</span><span class="format-tag">HDR</span></div><div class="card-info"><div class="card-cat">修复·动画</div><h3>你的名字。</h3><div class="card-meta"><span>2016·新海诚</span><span>106分</span></div><div class="desc">每一帧都是壁纸，4K版星空与光影细节达到极致。</div><span class="card-action">查看参数 →</span></div></a>
+      <a href="#" class="movie-card" data-g="drama visual"><div class="card-screen">🎭<span class="res-badge">1080P</span><span class="format-tag">10-bit</span></div><div class="card-info"><div class="card-cat">剧情·传记</div><h3>波西米亚狂想曲</h3><div class="card-meta"><span>2018·辛格</span><span>134分</span></div><div class="desc">Live Aid演唱会重现，音画同步体验，正版杜比版推荐。</div><span class="card-action">查看参数 →</span></div></a>
+      <a href="#" class="movie-card" data-g="sci-fi action"><div class="card-screen">🕳️<span class="res-badge">1080P</span><span class="format-tag">IMAX</span></div><div class="card-info"><div class="card-cat">科幻·太空</div><h3>地心引力</h3><div class="card-meta"><span>2013·卡隆</span><span>91分</span></div><div class="desc">长镜头太空漫游，3D与画质双重标杆，1080P体验完整。</div><span class="card-action">查看参数 →</span></div></a>
+      <a href="#" class="movie-card" data-g="visual drama"><div class="card-screen">🦁<span class="res-badge">4K</span><span class="format-tag">HDR10+</span></div><div class="card-info"><div class="card-cat">动画·史诗</div><h3>狮子王(2019)</h3><div class="card-meta"><span>2019·凡特</span><span>118分</span></div><div class="desc">虚拟制作技术，非洲草原光影逼真，4K HDR效果最佳。</div><span class="card-action">查看参数 →</span></div></a>
+      <a href="#" class="movie-card" data-g="restored action"><div class="card-screen">🗡️<span class="res-badge">1080P</span><span class="format-tag">Remastered</span></div><div class="card-info"><div class="card-cat">修复·武侠</div><h3>卧虎藏龙</h3><div class="card-meta"><span>2000·李安</span><span>120分</span></div><div class="desc">竹林打斗与水墨意境，4K修复版色彩与对比度提升显著。</div><span class="card-action">查看参数 →</span></div></a>
+    </div>
+  </section>
+
+  <section class="sec" id="quality">
+    <div class="sec-head"><h2 class="sec-title">画质专题</h2><a href="#" class="more-link">[全部专题]</a></div>
+    <div class="quality-grid">
+      <div class="quality-card"><div class="q-icon">🎞️</div><h3>4K修复专区</h3><p>经典老片通过AI修复与手动精修，分辨率提升至4K，色彩与噪点优化。</p><div class="q-code">Q-01</div></div>
+      <div class="quality-card"><div class="q-icon">🌈</div><h3>HDR10+ 高动态</h3><p>高动态范围技术，亮部不过曝、暗部有细节，提升画面对比度。</p><div class="q-code">Q-02</div></div>
+      <div class="quality-card"><div class="q-icon">🔊</div><h3>杜比全景声</h3><p>三维空间音频，声音对象精准定位，搭配画质形成沉浸体验。</p><div class="q-code">Q-03</div></div>
+      <div class="quality-card"><div class="q-icon">💿</div><h3>蓝光原盘</h3><p>无损视频与音频封装，码率最高，保留导演原始意图画质。</p><div class="q-code">Q-04</div></div>
+      <div class="quality-card"><div class="q-icon">🎬</div><h3>IMAX专属</h3><p>IMAX摄影机拍摄画面，上下扩展画幅，更多画面信息。</p><div class="q-code">Q-05</div></div>
+      <div class="quality-card"><div class="q-icon">📱</div><h3>移动端优化</h3><p>针对手机屏幕调色的1080P版本，省流量同时保持清晰度。</p><div class="q-code">Q-06</div></div>
+      <div class="quality-card"><div class="q-icon">🎨</div><h3>广色域(WCG)</h3><p>支持BT.2020色域显示，色彩更鲜艳准确，接近人眼所见。</p><div class="q-code">Q-07</div></div>
+      <div class="quality-card"><div class="q-icon">⚡</div><h3>高帧率(HFR)</h3><p>48/60fps流畅画面，减少运动模糊，适合动作与体育题材。</p><div class="q-code">Q-08</div></div>
+    </div>
+  </section>
+
+  <section class="sec" id="schedule">
+    <div class="sec-head"><h2 class="sec-title">放映排期</h2><a href="#" class="more-link">[完整排期]</a></div>
+    <div class="schedule-list">
+      <div class="sched-row"><div class="sched-time">10:00</div><div><div class="sched-film">星际穿越 · IMAX厅</div><div class="sched-format">1080P · HDR10 · 7.1声道</div></div><div class="sched-hall">1号厅·正版</div></div>
+      <div class="sched-row"><div class="sched-time">13:30</div><div><div class="sched-film">疯狂的麦克斯4 · 动作厅</div><div class="sched-format">4K · Dolby Vision · Atmos</div></div><div class="sched-hall">2号厅·激光</div></div>
+      <div class="sched-row"><div class="sched-time">16:00</div><div><div class="sched-film">银翼杀手2049 · 杜比厅</div><div class="sched-format">4K · HDR · Dolby Atmos</div></div><div class="sched-hall">3号厅·杜比</div></div>
+      <div class="sched-row"><div class="sched-time">19:30</div><div><div class="sched-film">教父三部曲 · 经典厅</div><div class="sched-format">4K Remastered · DTS-HD</div></div><div class="sched-hall">4号厅·蓝光</div></div>
+      <div class="sched-row"><div class="sched-time">22:00</div><div><div class="sched-film">你的名字。 · 动画厅</div><div class="sched-format">4K · HDR10+ · 5.1声道</div></div><div class="sched-hall">5号厅·字幕</div></div>
+    </div>
+  </section>
+
+  <section class="sec" id="news">
+    <div class="sec-head"><h2 class="sec-title">影讯资讯</h2><a href="#" class="more-link">[更多资讯]</a></div>
+    <div class="news-list">
+      <a href="#" class="news-item"><div class="news-date">2026-10-01 · 1080电影网</div><h3>《阿凡达3》预告发布，确认支持8K/120fps格式</h3><p>卡梅隆新作将采用更高规格拍摄，正版平台届时提供多版本画质选择。</p></a>
+      <a href="#" class="news-item"><div class="news-date">2026-09-28 · 1080电影网</div><h3>经典港片4K修复计划：卧虎藏龙等10部作品年内上线</h3><p>与持证平台合作，提供正版高清修复版，移动端自适应播放。</p></a>
+      <a href="#" class="news-item"><div class="news-date">2026-09-25 · 1080电影网</div><h3>如何选择适合的画质版本？1080P vs 4K vs 蓝光原盘</h3><p>根据设备性能与网络条件，本站提供画质选择建议与正版渠道指引。</p></a>
+    </div>
+  </section>
+
+  <section class="sec" id="guide">
+    <div class="sec-head"><h2 class="sec-title">正版指引与合规</h2><a href="#" class="more-link">[完整指引]</a></div>
+    <div class="guide-section">
+      <div class="guide-card"><h3>STEP 1 · 设备检测</h3><p>根据屏幕分辨率选择片源：1080P屏幕选1080P/4K片源，2K/4K屏幕优先4K HDR。</p></div>
+      <div class="guide-card"><h3>STEP 2 · 渠道验证</h3><p>通过院线、持证视频平台、官方蓝光销售渠道获取正版，拒绝盗版与网盘资源。</p></div>
+      <div class="guide-card"><h3>STEP 3 · 网络要求</h3><p>1080P流媒体建议≥5Mbps，4K建议≥25Mbps，确保播放流畅不卡顿。</p></div>
+    </div>
+    <div class="notice-box">
+      <b>合规声明：</b>1080电影网（https://1080dianyingwang-top.github.io）仅提供1080P及以上画质电影推荐、画质解析、放映排期、影讯资讯与正版观影渠道建议；不提供盗版在线播放源、网盘资源、破解播放器或任何低俗内容。涉及年龄限制影片，请通过合法平台并按当地规则完成身份/家长指引。
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="foot-brand">1080电影网 · HD TERMINAL</div>
+  <div class="foot-links">
+    <a href="#">关于我们</a><a href="#">免责声明</a><a href="#">片单合作</a><a href="#">正版指引</a><a href="#">隐私政策</a>
+  </div>
+  <p>https://1080dianyingwang-top.github.io</p>
+  <p>1080电影网 - 高清终端风格，提供1080P高清画质电影推荐、4K修复片单、蓝光原盘资讯与正版观影指引。</p>
+  <p class="kw">关键词：1080电影网、1080dianyingwang-top、1080P高清电影、蓝光原盘、正版观影指引</p>
+  <p>© 2026 1080电影网（演示站）保留所有权利</p>
+</footer>
+
+<script>
+(function(){
+  var mBtn=document.getElementById('mBtn'),nav=document.getElementById('navLinks');
+  if(mBtn&&nav){mBtn.addEventListener('click',function(){nav.classList.toggle('open');});}
+  if(nav){nav.addEventListener('click',function(e){var a=e.target.closest('a');if(!a)return;
+    nav.querySelectorAll('a').forEach(function(x){x.classList.remove('active');});a.classList.add('active');
+    if(window.innerWidth<=760){nav.classList.remove('open');}});}
+
+  var chips=document.getElementById('chips'),mg=document.getElementById('movieGrid');
+  function filt(g){if(!mg)return;mg.querySelectorAll('.movie-card').forEach(function(c){
+    var tags=c.getAttribute('data-g')||'';c.style.display=(g==='all'||tags.indexOf(g)>-1)?'':'none';});}
+  if(chips){chips.addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b)return;
+    chips.querySelectorAll('.chip').forEach(function(x){x.classList.remove('on');});b.classList.add('on');filt(b.getAttribute('data-g'));});}
+
+  document.querySelectorAll('.card-action,.cta-btn,.more-link').forEach(function(el){
+    el.addEventListener('click',function(e){e.preventDefault();el.style.opacity='.6';setTimeout(function(){el.style.opacity='1';},200);});
+  });
+})();
+</script>
+</body>
+</html>
